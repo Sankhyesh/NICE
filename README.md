@@ -38,3 +38,16 @@ https://pkg.jenkins.io/redhat-stable/
    17  chkconfig jenkins on
 
 ```
+```
+https://docs.docker.com/engine/install/centos/
+
+  sudo yum install -y yum-utils
+   37  sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+   38  sudo yum install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+   39  docker ps
+   40  systemctl status docker
+   41  systemctl start docker
+   42  clear
+   43  docker -v
+
+```
