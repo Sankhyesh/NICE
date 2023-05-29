@@ -126,3 +126,53 @@ https://docs.docker.com/engine/install/centos/
   118  docker ps
 
 ```
+```
+
+  ifconfig
+  131  clear
+  132  docker inspect c1
+  133  docker ps -a
+  134  docker start c1
+  135  docker ps
+  136  docker run -dit --name c2 centos:7
+  137  docker ps
+  138  docker inspect c2
+  139  clear
+  140  docker run -dt --name c4 redis
+  141  docker ps
+  142  docker exec -it c4 /bin/bash
+  143  docker ps
+  144  docker attach c4
+  145  clear
+  146  docker ps
+  147  docker run -dt --name c5 httpd
+  148  exit
+  149  docker ps
+  150  docker inpect c5
+  151  docker inspect c5
+  152  curl 172.17.0.5
+  153  docker run -dit --name c6 nginx
+  154  docker ps
+  155  docker inspect c6
+  156  curl 172.17.0.6
+  157  clear
+  158  docker ps
+  159  docker rm -f `docker ps -aq`
+  160  docker rmi -f `docker images`
+  161  clear
+  162  docker ps
+  163  docker ps -a
+  164  docker images
+  165  docker run -dit --name web1 --hostname httpd -p 81:80 httpd
+  166  docker ps
+  167  docker inspect web1
+  168  curl 172.17.0.2
+  169  clear
+  170  docker ps -a
+  171  curl 172.31.28.36:81
+  172  docker run -dit --name web2 -P nginx
+  173  docker ps
+  174  curl 172.31.28.36:32768
+
+
+```
