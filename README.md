@@ -51,3 +51,78 @@ https://docs.docker.com/engine/install/centos/
    43  docker -v
 
 ```
+```
+
+ ps -ef | grep docker
+   49  clear
+   50  docker ps
+   51  docker ps -a
+   52  docker images
+   53  docker pull httpd
+   54  docker images
+   55  docker ps -a
+   56  clear
+   57  docker pull centos:7
+   58  docker images
+   59  clear
+   60  docker create -dt --name c1 centos:7
+   61  docker create -t --name c1 centos:7
+   62  docker ps -a
+   63  docker start c1
+   64  docker ps -a
+   65  docker run -dt  centos:7
+   66  docker ps -a
+   67  clear
+   68  docker ps -a
+   69  docker rm -f c1
+   70  docker rm -f dreamy_cerf
+   71  docker ps -a
+   72  docker rmi -f httpd
+   73  docker rmi -f centos:7
+   74  clear
+   75  docker run -h
+   76  docker run --help
+   77  clear
+   78  docker run -it --name c1 centos:7
+   79  docker ps
+   80  docker ps -a
+   81  docker start c1
+   82  docker attach c1
+   83  docker ps -a
+   84  docker start c1
+   85  clear
+   86  docker run -dt --name c2 ubuntu
+   87  docker ps
+   88  docker attach c2
+   89  clear
+   90  history
+   91  clear
+   92  docker run -d --name c3 centos:7
+   93  docker ps
+   94  docker ps -a
+   95  docker run -d --name c4 httpd
+   96  docker ps
+   97  docker attach c4
+   98  clear
+   99  ls
+  100  docker ps
+  101  docker ps -a
+  102  docker start c4
+  103  docker start c3
+  104  docker ps -a
+  105  docker ps
+  106  docker exec -it c2 /bin/bash
+  107  docker ps
+  108  docker exec -it c4 /bin/bash
+  109  clear
+  110  docker ps -a
+  111  docker stop c2
+  112  docker kill c2
+  113  docker ps
+  114  docker rm c2
+  115  docker rm -f c4
+  116  docker ps
+  117  docker ps -a
+  118  docker ps
+
+```
