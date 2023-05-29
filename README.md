@@ -176,3 +176,68 @@ https://docs.docker.com/engine/install/centos/
 
 
 ```
+
+
+```
+
+ docker ps
+  179  docker inpect web2
+  180  docker inspect web2
+  181  curl 172.17.0.3
+  182  clear
+  183  docker inspect web2
+  184  curl 172.31.28.36:81
+  185  clear
+  186  ifconfig
+  187  clear
+  188  docker ps
+  189  docker inspec web1
+  190  docker inspect web1
+  191  clear
+  192  docker network ls
+  193  ifconfig
+  194  clear
+  195  docker network -h
+  196  docker network create --subnet=10.0.0.0/16 -d bridge raman-net
+  197  docker network ls
+  198  docker inspect raman-net
+  199  clear
+  200  docker run -dit --name c3 --network raman-net nginx
+  201  docker ps
+  202  docker inspect c3
+  203  curl 10.0.0.2
+  204  clear
+  205  netstat -tulnp
+  206  docker ps
+  207  clear
+  208  docker rm -f `docker ps -aq`
+  209  clear
+  210  docker run -dit --name c1 --network host httpd
+  211  docker ps
+  212  docker network ls
+  213  netstat -tulnp
+  214  clear
+  215  docker ps'
+  216  clear
+  217  netstat -tulnp
+  218  docker ps
+  219  docker run -dit --name c2 --network host nginx
+  220  docker p
+  221  docker ps
+  222  docker ps -a
+  223  docker logs c2
+  224  clear
+  225  docker run -dit --name c3 --network none nginx
+  226  docker ps
+  227  docker inspect c3
+  228  clear
+  229  docker run -dit --name c4 --network host redis
+  230  docker ps
+  231  netstat -tulnp
+  232  docker run -dit --name c5 --network host redis
+  233  docker ps
+  234  docker ps -a
+  235  docker logs c5
+
+
+```
