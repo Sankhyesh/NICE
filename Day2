@@ -67,3 +67,26 @@ docker logs c1
   338  docker system df
 
 ```
+
+```
+ docker ps
+  371  docker images
+  372  docker run -dit --name mycon mycustomimage:v1
+  373  docker ps
+  374  docker attach mycon
+  375  docker images
+  376  clear
+  377  docker ps
+  378  docker images
+  379  docker ps -a
+  380  docker start mycon
+  381  docker attach mycon
+  382  docker start mycon
+  383  docker commit -m "added one directory" -a "raman" c1 mycustomimage:v2
+  384  docker commit -m "added one directory" -a "raman" mycon mycustomimage:v2
+  385  docker images
+  386  docker run -dit --name c3 mycustomimage:v2
+  387  docker ps
+  388  docker attach c3
+
+```
