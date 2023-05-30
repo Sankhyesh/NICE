@@ -90,3 +90,73 @@ docker logs c1
   388  docker attach c3
 
 ```
+
+  372  docker run -dit --name mycon mycustomimage:v1
+  394    373  docker ps
+  395    374  docker attach mycon
+  396    375  docker images
+  397    376  clear
+  398    377  docker ps
+  399    378  docker images
+  400    379  docker ps -a
+  401    380  docker start mycon
+  402    381  docker attach mycon
+  403    382  docker start mycon
+  404    383  docker commit -m "added one directory" -a "raman" c1 mycustomimage:v2
+  405    384  docker commit -m "added one directory" -a "raman" mycon mycustomimage:v2
+  406    385  docker images
+  407    386  docker run -dit --name c3 mycustomimage:v2
+  408    387  docker ps
+  409    388  docker attach c3
+  410  clear
+  411  docker ps
+  412  docker images
+  413  ls
+  414  mkdir app
+  415  cd app/
+  416  ls
+  417  vi Dockerfile
+  418  ls
+  419  cat Dockerfile
+  420  clear
+  421  docker rm -f `docker ps -aq`
+  422  docker rmi -f `docker images`
+  423  clear
+  424  docker ps
+  425  docker images
+  426  ls
+  427  cat Dockerfile
+  428  ls
+  429  docker build -t ramanapp:v1 .
+  430  docker images
+  431  docker run -dit --name c5 httpd ls
+  432  docker ps -a
+  433  docker run -dit --name c5 httpd
+  434  docker run -dit --name c6 httpd
+  435  docker ps
+  436  docker exec -it c6 /bin/bash
+
+
+
+
+FROM centos:7
+RUN yum update -y
+RUN yum -y install httpd
+
+
+
+
+
+FROM centos:7
+MAINTAINER  Raman Khanna raman.khanna@TechLanders.com
+RUN mkdir /data
+RUN yum update -y
+RUN yum -y install httpd   php
+RUN echo " TechLanders Solutions Deals in DevOps and Cloud" > /var/www/html/index.html
+EXPOSE 80
+VOLUME  /data
+RUN echo "httpd" >> /root/.bashrc
+CMD ["/bin/bash"]
+
+
+```
