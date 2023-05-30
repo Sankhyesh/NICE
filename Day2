@@ -160,3 +160,23 @@ CMD ["/bin/bash"]
 
 
 ```
+
+```
+ docker login
+  444  clear
+  445  docker images
+  446  docker push ramanapp:v1
+  447  docker tag 611f0476e8f4 ramann123/myimage:version1
+  448  docker images
+  449  docker push ramann123/myimage:version1
+  450  docker rmi -f `docker images`
+  451  clear
+  452  docker ps
+  453  docker rm -f `docker ps -aq`
+  454  docker rmi -f `docker images`
+  455  clear
+  456  docker images
+  457  docker pull ramann123/myimage:version1
+  458  docker images
+
+```
