@@ -36,3 +36,34 @@ docker rm -f `docker ps -qa`
 
 
 ```
+
+```
+docker logs c1
+  313  cd /var/lib/docker/
+  314  ls
+  315  cd volumes/
+  316  ls
+  317  cd ..ls
+  318  cd ..
+  319  ls
+  320  cd image/
+  321  ls
+  322  cd overlay2/
+  323  ls
+  324  cat repositories.json
+  325  clear
+  326  cd ~
+  327  ls
+  328  docker stats
+  329  docker top c5
+  330  ps -ef | grep 10091
+  331  clear
+  332  docker system df
+  333  docker system -h
+  334  system prune
+  335  docker system prune
+  336  docker system df
+  337  docker system prune -a
+  338  docker system df
+
+```
