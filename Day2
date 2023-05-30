@@ -180,3 +180,90 @@ CMD ["/bin/bash"]
   458  docker images
 
 ```
+
+```
+
+
+sudo yum install -y yum-utils
+  509  sudo yum-config-manager --add-repo https://rpm.releases.hashicorp.com/RHEL/hashicorp.repo
+  510  sudo yum -y install terraform
+  511  terraform -v
+  512  history
+  513  clear
+  514  aws configure
+  515  yum install -y unzip
+  516  yum install -y wget
+  517  curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+  518  unzip awscliv2.zip
+  519  sudo ./aws/install
+  520  ln -s  /usr/local/bin/aws  /usr/bin/
+  521  clear
+  522  terraform -v
+  523  aws
+  524  aws help
+  525  aws s3 ls
+  526  aws configure
+  527  aws s3 ls
+  528  clear
+  529  ls'
+  530  clear
+  531  ls
+  532  mkdir terraform
+  533  cd terraform/
+  534  ls
+  535  vi server.tf
+  536  cat server.tf
+  537  pwd
+  538  ls -a
+  539  terraform init
+  540  ls -a
+  541  cd .terraform
+  542  ls
+  543  cd providers/
+  544  ls
+  545  cd registry.terraform.io/
+  546  ls
+  547  cd hashicorp/
+  548  ls
+  549  cd aws/
+  550  ls
+  551  cd 5.0.1/
+  552  ls
+  553  cd linux_amd64/
+  554  ls
+  555  cd ~
+  556  ls
+  557  cd terraform/
+  558  ls
+  559  ls -a
+  560  terraform validate
+  561  terraform plan
+  562  terraform apply
+  563  terraform destroy
+  564  history
+
+
+
+
+
+
+[root@nice terraform]# cat server.tf
+provider "aws" {
+region="us-east-1"
+}
+
+resource "aws_instance" "ec2" {
+  ami           = "ami-0bef6cc322bfff646"
+  instance_type = "t2.micro"
+  availability_zone="us-east-1c"
+tags= {
+Name="myfirstserver"
+}
+}
+
+
+
+
+
+```
+
