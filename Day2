@@ -1,0 +1,38 @@
+```
+
+
+docker rm -f `docker ps -qa`
+  258  clear
+  259  docker ps
+  260  docker run -dit --name c1 -v /app:/ramandir centos:7
+  261  docker ps
+  262  cd /var/lib
+  263  ls
+  264  cd docker
+  265  ls
+  266  cd volumes
+  267  ls
+  268  cd /
+  269  clear
+  270  ls
+  271  docker ps
+  272  docker exec -it c1 ls
+  273  docker exec -it c1 ls /ramandir
+  274  docker exec -it c1 ls touch /ramandir/hostfile
+  275  docker exec -it c1 touch /ramandir/hostfile
+  276  docker exec -it c1 ls /ramandir
+  277  docker exec -it c1
+  278  docker exec -it c1 /bin/bash
+  279  docker ps
+  280  ls
+  281  cd app/
+  282  ls
+  283  cat hostfile
+  284  docker rm -f c1
+  285  docker ps -a
+  286  ls
+  287  cat hostfile
+
+
+
+```
