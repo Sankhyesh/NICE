@@ -1,0 +1,88 @@
+```
+
+[root@nice terraform]# cat server.tf
+provider "aws" {
+region="us-east-1"
+}
+
+resource "aws_instance" "ec2" {
+  ami           = "ami-0bef6cc322bfff646"
+  instance_type = "t2.micro"
+  availability_zone="us-east-1c"
+tags= {
+Name="myfirstserver"
+}
+}
+
+
+resource "aws_security_group" "sg" {
+  name        = "raman-terraform-sg"
+  description = "Allow TLS inbound traffic"
+  vpc_id      = "vpc-0c06b56c732f0511a"
+
+  ingress {
+    description      = "https"
+    from_port        = 443
+    to_port          = 443
+    protocol         = "tcp"
+    cidr_blocks      = ["10.0.0.0/24"]
+  }
+
+  ingress {
+    description      = "TLS from VPC"
+    from_port        = 8081
+    to_port          = 8081
+    protocol         = "tcp"
+    cidr_blocks      = ["10.0.0.0/16"]
+  }
+
+  ingress {
+    description      = "third port"
+    from_port        = 6379
+    to_port          = 6379
+    protocol         = "tcp"
+    cidr_blocks      = ["0.0.0.0/0"]
+  }
+
+  egress {
+    from_port        = 0
+    to_port          = 65535
+    protocol         = "tcp"
+    cidr_blocks      = ["0.0.0.0/0"]
+  }
+
+  tags = {
+    Name = "rule2allowrestrictedtraffic"
+  }
+}
+
+resource "aws_s3_bucket" "s3" {
+  bucket = "my-tf-raman-bucket"
+
+  tags = {
+    Name        = "Raman-buckettttttttttttttttttttttttttttttttttttttt"
+    Environment = "Dev"
+  }
+}
+
+
+output "myserverIP" {
+value=[aws_instance.ec2. public_ip]
+}
+
+
+output "myserver-type" {
+value=[aws_instance.ec2.instance_type]
+}
+
+output "s3-bucket-arn" {
+value=[aws_s3_bucket.s3.arn]
+}
+
+output "s3-bucket-region" {
+value=[aws_s3_bucket.s3.region]
+}
+
+
+
+```
