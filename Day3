@@ -86,3 +86,105 @@ value=[aws_s3_bucket.s3.region]
 
 
 ```
+
+
+```
+
+
+[root@nice terraform]# cat server.tf
+provider "aws" {
+region="us-east-1"
+}
+
+resource "aws_instance" "ec2" {
+  ami           = "ami-0bef6cc322bfff646"
+  instance_type = var.nice
+  availability_zone="us-east-1c"
+  vpc_security_group_ids=["sg-02cbaf953d87057d8"]
+tags= {
+Name="myfirstserver"
+}
+}
+
+
+resource "aws_security_group" "sg" {
+  name        = "raman-terraform-sg"
+  description = "Allow TLS inbound traffic"
+  vpc_id      = "vpc-0c06b56c732f0511a"
+
+  ingress {
+    description      = "https"
+    from_port        = 443
+    to_port          = 443
+    protocol         = "tcp"
+    cidr_blocks      = [var.rk]
+  }
+
+  ingress {
+    description      = "TLS from VPC"
+    from_port        = 8081
+    to_port          = 8081
+    protocol         = "tcp"
+    cidr_blocks      = [var.rk]
+  }
+
+  ingress {
+    description      = "third port"
+    from_port        = 6379
+    to_port          = 6379
+    protocol         = "tcp"
+    cidr_blocks      = [var.rk]
+  }
+
+  egress {
+    from_port        = 0
+    to_port          = 65535
+    protocol         = "tcp"
+    cidr_blocks      = ["0.0.0.0/0"]
+  }
+
+  tags = {
+    Name = "rule2allowrestrictedtraffic"
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+[root@nice terraform]# cat variable.tf
+variable "rk" {
+default= "0.0.0.0/0"
+}
+
+variable "nice" {
+default= "t2.nano"
+}
+
+
+
+
+
+
+
+
+
+vi variable.tf
+  655  vi variable.tf
+  656  terraform apply
+  657  vi variable.tf
+  658  terraform apply -var="nice=t2.medium" -var="rk="20.20.20.20/24"
+
+  659  terraform apply -var="nice=t2.medium" -var="rk=20.20.20.20/24"
+  660  terraform apply -var="nice=t2.medium" -var="rk=10.0.0.0/24"
+terraform destroy
+
+
+
